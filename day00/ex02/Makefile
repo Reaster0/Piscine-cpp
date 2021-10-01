@@ -6,14 +6,15 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/10/01 18:18:08 by earnaud          ###   ########.fr        #
+#    Updated: 2021/10/01 18:25:42 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		:= annulaire.cpp
+SRCS		:= Account.cpp \
+				tests.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
-NAME		:= annulaire
+NAME		:= Account
 CC			:= clang++
 CFLAGS		:= -Wall -Wextra -Werror
 %.o:		%.cpp
