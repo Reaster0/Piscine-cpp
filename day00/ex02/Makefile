@@ -6,7 +6,7 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/10/01 18:25:42 by earnaud          ###   ########.fr        #
+#    Updated: 2021/10/03 16:07:35 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,5 +30,11 @@ clean:
 		
 fclean:		clean
 			$(RM) $(NAME)
+
+build:
+			sudo docker build -t debug-cpp ../../.
+
+debug:		build
+			sudo docker run -itv /$(shell pwd):/work debug-cpp
 
 re:			fclean all
