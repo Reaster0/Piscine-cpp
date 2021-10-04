@@ -48,7 +48,7 @@ void search_contact(t_annulaire *phone_book)
 	std::cout << "what id interest you?\n";
 	while (1)
 	{
-		std::cin >> temp;
+		std::cin >> temp; //une erreur ici
 		if (temp < 0 || temp >= i)
 			std::cout << "please insert a valid id\n";
 		else
