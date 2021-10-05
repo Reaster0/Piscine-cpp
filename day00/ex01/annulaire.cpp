@@ -3,21 +3,21 @@
 void add_contact(t_annulaire *phone_book)
 {
 	if (phone_book->nbr_contacts == 8)
-		std::cout << "too much users in database rip\n";
+		std::cout << "too much users in database rip" << std::endl;
 	else
 	{
-		std::cout << "insert a first name\n";
+		std::cout << "insert a first name" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].first_name;
-		std::cout << "insert a last name\n";
+		std::cout << "insert a last name" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].last_name;
-		std::cout << "insert a nickname\n";
+		std::cout << "insert a nickname" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].nickname;
-		std::cout << "insert a phone number\n";
+		std::cout << "insert a phone number" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].phone_nbr;
-		std::cout << "and of course his darksest secret\n";
+		std::cout << "and of course his darksest secret" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].dark_secret;
 		phone_book->nbr_contacts++;
-		std::cout << "added succesfully the contact\n";
+		std::cout << "added succesfully the contact" << std::endl;
 	}
 }
 
@@ -35,7 +35,7 @@ std::string truncatene(std::string str)
 void search_contact(t_annulaire *phone_book)
 {
 	int i = 0;
-	int temp;
+	int tempint;
 
 	while (i < phone_book->nbr_contacts)
 	{
@@ -45,39 +45,35 @@ void search_contact(t_annulaire *phone_book)
 		<< std::setw(10) << truncatene(phone_book->contacts[i].nickname) << "|" << std::endl;
 		i++;
 	}
-	std::cout << "what id interest you?\n";
-	while (1)
+	std::cout << "what id interest you?" << std::endl;
+	std::cin >> tempint;
+	if (tempint < 0 || tempint >= i)
+		std::cout << "please insert a valid id" << std::endl;
+	else
 	{
-		std::cin >> temp; //une erreur ici
-		if (temp < 0 || temp >= i)
-			std::cout << "please insert a valid id\n";
-		else
-		{
-			std::cout << phone_book->contacts[temp].first_name << std::endl
-			<< phone_book->contacts[temp].last_name << std::endl
-			<< phone_book->contacts[temp].nickname << std::endl
-			<< phone_book->contacts[temp].phone_nbr << std::endl
-			<< phone_book->contacts[temp].dark_secret << std::endl;
-			break;
-		}
+		std::cout << phone_book->contacts[tempint].first_name << std::endl
+				  << phone_book->contacts[tempint].last_name << std::endl
+				  << phone_book->contacts[tempint].nickname << std::endl
+				  << phone_book->contacts[tempint].phone_nbr << std::endl
+				  << phone_book->contacts[tempint].dark_secret << std::endl;
 	}
+	std::cin.clear();
 }
 
 int main()
 {
-	int need_exit = 0;
 	t_annulaire phone_book;
 	phone_book.nbr_contacts = 0;
+	std::string temp;
 
-	while (!need_exit)
+	while (1)
 	{
-		std::cout << "ADD  SEARCH  EXIT\n";
-		std::string temp;
+		std::cout << "ADD  SEARCH  EXIT" << std::endl;
 		std::cin >> temp;
 		if (temp == "ADD")
 			add_contact(&phone_book);
 		else if (temp == "EXIT")
-			need_exit = 1;
+			break;
 		else if (temp == "SEARCH")
 			search_contact(&phone_book);
 	}
