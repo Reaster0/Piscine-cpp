@@ -1,6 +1,6 @@
 #include "annulaire.hpp"
 
-void add_contact(t_annulaire *phone_book)
+void add_contact(annulaire *phone_book)
 {
 	if (phone_book->nbr_contacts == 8)
 		std::cout << "too much users in database rip" << std::endl;
@@ -14,7 +14,7 @@ void add_contact(t_annulaire *phone_book)
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].nickname;
 		std::cout << "insert a phone number" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].phone_nbr;
-		std::cout << "and of course his darksest secret" << std::endl;
+		std::cout << "and of course his darkest secret" << std::endl;
 		std::cin >> phone_book->contacts[phone_book->nbr_contacts].dark_secret;
 		phone_book->nbr_contacts++;
 		std::cout << "added succesfully the contact" << std::endl;
@@ -32,7 +32,7 @@ std::string truncatene(std::string str)
     return (str);
 }
 
-void search_contact(t_annulaire *phone_book)
+void search_contact(annulaire *phone_book)
 {
 	int i = 0;
 	int tempint;
@@ -62,7 +62,7 @@ void search_contact(t_annulaire *phone_book)
 
 int main()
 {
-	t_annulaire phone_book;
+	annulaire phone_book;
 	phone_book.nbr_contacts = 0;
 	std::string temp;
 
