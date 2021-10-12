@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 		std::cout << "Error: can't read the file\n";
 		return (0);
 	}
-	std::ofstream fileTo("FILENAME.replace");
+	std::ofstream fileTo(filename + ".replace");
 	if (!fileTo)
 	{
 		std::cout << "Error: can't write the file\n";
