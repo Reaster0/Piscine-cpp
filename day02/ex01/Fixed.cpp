@@ -12,16 +12,6 @@ void Fixed::setRawBits(int const raw)
 	this->value = raw;
 }
 
-float Fixed::toFloat() const
-{
-
-}
-
-int Fixed::toInt(void) const
-{
-	
-}
-
 Fixed &Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Assignation operator called" << std::endl;
@@ -39,16 +29,6 @@ Fixed::Fixed(Fixed &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	this->value = copy.value;
-}
-
-Fixed::Fixed(const int init)
-{
-	
-}
-
-Fixed::Fixed(const float init)
-{
-
 }
 
 Fixed::~Fixed()
