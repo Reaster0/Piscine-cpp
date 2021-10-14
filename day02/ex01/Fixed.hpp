@@ -7,10 +7,10 @@ class Fixed
 {
 	public:
 		Fixed();
-		~Fixed();
-		Fixed(Fixed &copy);
+		Fixed(Fixed const &copy);
 		Fixed(const int init);
 		Fixed(const float init);
+		~Fixed();
 
 		int toInt() const;
 		float toFloat(void) const;
@@ -22,5 +22,6 @@ class Fixed
 		int value;
 		static const int bits = 8;
 };
+	std::ostream &operator<<(std::ostream &os, const Fixed &other);
 
 #endif
