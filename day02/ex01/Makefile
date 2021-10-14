@@ -6,7 +6,7 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/10/12 14:02:56 by earnaud          ###   ########.fr        #
+#    Updated: 2021/10/14 18:10:35 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		:= main.cpp	\
 OBJS		:= $(SRCS:.cpp=.o)
 NAME		:= fixed
 CC			:= clang++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CFLAGS		:= -g -fstandalone-debug#-Wall -Wextra -Werror -std=c++98
 %.o:		%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
