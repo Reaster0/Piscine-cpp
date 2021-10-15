@@ -14,7 +14,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat() const
 {
-	return roundf((float)value / (float)(1 << bits) * 10000) / 10000;
+	return ((float)value / (float)(1 << bits));
 }
 
 int Fixed::toInt(void) const
