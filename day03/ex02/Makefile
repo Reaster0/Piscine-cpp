@@ -6,18 +6,19 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/10/20 18:05:46 by earnaud          ###   ########.fr        #
+#    Updated: 2021/10/20 18:07:33 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		:= main.cpp	\
 				ClapTrap.cpp \
-				ScavTrap.cpp
+				ScavTrap.cpp \
+				FragTrap.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
-NAME		:= Scavtrap
+NAME		:= Fragtrap
 CC			:= clang++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CFLAGS		:= #-Wall -Wextra -Werror -std=c++98
 %.o:		%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
