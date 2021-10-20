@@ -6,7 +6,7 @@ ClapTrap::ClapTrap()
 	Hitpoints = 10;
 	EnergyPoints = 10;
 	AttackDammage = 0;
-	std::cout << "the constructor by default of " << Name << " has been called." << std::endl;
+	std::cout << "the constructor by default of the Claptrap " << Name << " has been called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string const NameGiven)
@@ -15,18 +15,18 @@ ClapTrap::ClapTrap(std::string const NameGiven)
 	Hitpoints = 10;
 	EnergyPoints = 10;
 	AttackDammage = 0;
-	std::cout << "the constructor of " << Name << " has been called." << std::endl;
+	std::cout << "the constructor of the Claptrap " << Name << " has been called." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy)
 {
 	*this = copy;
-	std::cout << "the constructor by copy of " << Name << " has been called." << std::endl;
+	std::cout << "the constructor by copy of the Claptrap " << Name << " has been called." << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "the destructor of " << Name << " has been called." << std::endl;
+	std::cout << "the destructor of the Claptrap " << Name << " has been called." << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
