@@ -2,7 +2,7 @@
 #define SCAVTRAP
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 	public:
 		ScavTrap(std::string const NameGiven);

@@ -2,11 +2,9 @@
 
 ScavTrap::ScavTrap(std::string const NameGiven):ClapTrap(NameGiven)
 {
-	Name = NameGiven;
 	Hitpoints = 100;
 	EnergyPoints = 50;
 	AttackDammage = 20;
-	
 	std::cout << "the constructor of the ScavTrap " << Name << " has been called." << std::endl;
 }
 
@@ -14,6 +12,14 @@ ScavTrap::ScavTrap(ScavTrap &copy)
 {
 	*this = copy;
 	std::cout << "the constructor by copy of the ScavTrap " << Name << " has been called." << std::endl;
+}
+
+ScavTrap::ScavTrap(): ClapTrap("default_name")
+{
+	Hitpoints = 100;
+	EnergyPoints = 50;
+	AttackDammage = 20;
+	std::cout << "the constructor by default of the ScavTrap " << Name << " has been called." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -24,6 +30,9 @@ ScavTrap::~ScavTrap()
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
 	this->Name = other.Name;
+	this->Hitpoints = other.Hitpoints;
+	this->EnergyPoints = other.EnergyPoints;
+	this->AttackDammage = other.AttackDammage;
 	std::cout << "= overload has been called for ScavTrap" << std::endl;
 	return *this;
 }
