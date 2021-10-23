@@ -2,18 +2,17 @@
 
 FragTrap::FragTrap(std::string const NameGiven):ClapTrap(NameGiven)
 {
-	Name = NameGiven;
 	Hitpoints = 100;
 	EnergyPoints = 100;
 	AttackDammage = 30;
 	
-	std::cout << "the constructor of the FragTrap " << Name << " has been called." << std::endl;
+	std::cout << "the constructor of the FragTrap has been called." << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap &copy)
 {
 	*this = copy;
-	std::cout << "the constructor by copy of the FragTrap " << Name << " has been called." << std::endl;
+	std::cout << "the constructor by copy of the FragTrap has been called." << std::endl;
 }
 
 FragTrap::FragTrap(): ClapTrap("default_name")
@@ -21,12 +20,12 @@ FragTrap::FragTrap(): ClapTrap("default_name")
 	Hitpoints = 100;
 	EnergyPoints = 50;
 	AttackDammage = 20;
-	std::cout << "the constructor by default of the FragTrap " << Name << " has been called." << std::endl;
+	std::cout << "the constructor by default of the FragTrap has been called." << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "the destructor of the FragTrap " << Name << " has been called." << std::endl;
+	std::cout << "the destructor of the FragTrap has been called." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)
