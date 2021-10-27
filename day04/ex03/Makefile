@@ -6,11 +6,14 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/10/25 19:29:35 by earnaud          ###   ########.fr        #
+#    Updated: 2021/10/27 17:53:24 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		:= main.cpp
+SRCS		:= main.cpp \
+				Amateria.cpp \
+				ice.cpp \
+				Icharacter.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
 NAME		:= Animals
