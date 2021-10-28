@@ -10,6 +10,7 @@ class Ice : public AMateria
 		~Ice();
 
 		void use(ICharacter& target){std::cout << "*shoot an ice bolt at " << target.getName() << " \n";}
+		AMateria *clone() const {return new Ice(*this);}
 };
 
 #endif

@@ -1,7 +1,10 @@
 #ifndef ICHARACTER
 #define ICHARACTER
 #include "Amateria.hpp"
+#include "Imateriasource.hpp"
+#include "Materiasource.hpp"
 class AMateria;
+class MateriaSource;
 
 class ICharacter
 {
