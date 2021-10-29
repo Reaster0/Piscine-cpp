@@ -43,7 +43,7 @@ void Character::equip(AMateria* m)
 {
 	int id = 0;
 
-	while (!listMateria[id] && id < 4)
+	while (listMateria[id] && id < 4)
 		id++;
 	if (id != 4)
 		listMateria[id] = m;
@@ -58,12 +58,15 @@ void Character::unequip(int idx)
 			if (idx == 3)
 				listMateria[idx] = NULL;
 			else
-				listMateria[idx] = listMateria[++idx];
+				listMateria[idx] = listMateria[idx + 1];
+			idx++;
 		}
 	}
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-
+	if (idx >= 4 || !listMateria[idx])
+		return ;
+	this->listMateria[idx]->use(target);
 }

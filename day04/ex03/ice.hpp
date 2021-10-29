@@ -5,7 +5,7 @@
 class Ice : public AMateria
 {
 	public:
-		Ice():AMateria("ice"){}
+		Ice():AMateria("Ice"){}
 		Ice(Ice const& other):AMateria(other){}
 		~Ice();
 
