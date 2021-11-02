@@ -15,7 +15,7 @@ WORKDIR /work
 RUN apt update && \
  apt upgrade -y
 RUN apt install gcc curl clang zsh make valgrind -y
-RUN apt install git -y
+RUN apt install gedit git -y
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" | zsh || true
 
 # This command runs your application, comment out this line to compile only

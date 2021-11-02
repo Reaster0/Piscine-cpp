@@ -6,17 +6,15 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/11/02 11:29:18 by earnaud          ###   ########.fr        #
+#    Updated: 2021/11/02 18:00:11 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		:= main.cpp \
-				Amateria.cpp \
-				Character.cpp \
-				Materiasource.cpp
+				Bureaucrat.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
-NAME		:= materia
+NAME		:= bureaucrat
 CC			:= clang++
 CFLAGS		:= -Wall -Wextra -Werror -std=c++98
 %.o:		%.cpp
@@ -37,6 +35,6 @@ build:
 			sudo docker build -t debug-cpp ../../.
 
 debug:		build
-			sudo docker run -itv /$(shell pwd):/work debug-cpp
+			sudo docker run -e DISPLAY=host.docker.internal:0 -itv /$(shell pwd):/work debug-cpp
 
 re:			fclean all
