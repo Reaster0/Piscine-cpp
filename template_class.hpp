@@ -1,3 +1,6 @@
+#ifndef TEMPLATE_
+#define TEMPLATE_
+
 class Template
 {
 	private:
@@ -9,6 +12,8 @@ class Template
 
 		Template &operator=(const Template &other);
 };
+
+#endif
 
 Template::Template()
 {
