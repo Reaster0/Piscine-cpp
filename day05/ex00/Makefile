@@ -16,7 +16,7 @@ SRCS		:= main.cpp \
 OBJS		:= $(SRCS:.cpp=.o)
 NAME		:= bureaucrat
 CC			:= clang++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CFLAGS		:= -Wall -Wextra -Werror -std=c++98 -g  -fstandalone-debug
 %.o:		%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
