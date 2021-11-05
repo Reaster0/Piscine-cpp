@@ -11,6 +11,10 @@ Form::Form(const Form &other): name(other.name), signature(other.signature), gra
 
 Form::Form(std::string const NameGiven, int const gradeSign, int const gradeExecute): name(NameGiven), signature(false), gradeToSign(gradeSign), gradeToExecute(gradeExecute)
 {
+	if (gradeSign < 1 || gradeExecute < 1)
+		throw Form::GradeTooHighException();
+	if (gradeSign > 150 || gradeExecute > 150)
+		throw Form::GradeTooLowException();
 }
 
 Form::~Form()
@@ -22,32 +26,19 @@ Form &Form::operator=(const Form &other)
 {
 	name = other.name;
 	signature = other.signature;
-	//gradeToSign = other.gradeToSign;
-	//gradeToExecute = other.gradeToExecute;
 	return *this;
 }
 
-void Form::GradeTooLowException()
-{
-	std::cout << "the grade is too low for this form" << std::endl;
-}
-
-void Form::GradeTooHighException()
-{
-	std::cout << "the grade is too high for this form" << std::endl;
-}
-
 void Form::beSigned(Bureaucrat const &other)
-{
+{	
 	try
 	{
-		if (other.getGrade() < gradeToSign)
-			throw 1;
+		if (other.getGrade() > gradeToSign)
+			throw Form::GradeTooLowException();
 		signature = true;
 	}
-	catch(const int& e)
+	catch(const std::exception& e)
 	{
-		if (e == 1)
-			GradeTooLowException();
+		std::cout << e.what() << std::endl;
 	}	
 }
