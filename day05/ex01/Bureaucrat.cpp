@@ -10,10 +10,17 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.
 
 Bureaucrat::Bureaucrat(std::string const _name, int const note) : name(_name), grade(note)
 {
-	if (grade > 150)
-		throw GradeTooLowException();
-	if (grade < 1)
-		throw GradeTooHighException();
+	try
+	{	
+		if (grade > 150)
+			throw GradeTooLowException();
+		if (grade < 1)
+			throw GradeTooHighException();
+	}
+	catch (std::exception const &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()
@@ -54,6 +61,7 @@ void Bureaucrat::decrementGrade()
 void Bureaucrat::signForm(Form &other) const
 {
 	other.beSigned(*this);
+	std::cout << this->getName() << " has signed " << other.getName() << " with grade " << getGrade() << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)

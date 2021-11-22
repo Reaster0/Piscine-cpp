@@ -6,7 +6,15 @@ int main()
 	Bureaucrat b("lol", 1);
 	Form c("test", 3, 3);
 	Form d;
-	d = c; 
+	d = c;
 
-	c.beSigned(a);
+	c.beSigned(a); //
+	a.signForm(c); // actually the two are the same thing
+
+	b.signForm(d); //
+	d.beSigned(a); // again same thing but it work
+
+	std::cout << c << std::endl;
+
+	Form e("marche po", 155, 1); //get an error
 }
