@@ -28,6 +28,8 @@ int main()
 	me->equip(src->createMateria("ice")); //now that there is a place i can
 
 	ICharacter *bob = new Character("bob");
+	ICharacter *test = bob;
+	test->unequip(3);
 
 	me->use(0, *bob);
 	me->use(1, *bob);

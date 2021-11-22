@@ -14,7 +14,7 @@ Cat::Cat(Cat const& other)
 
 Cat::~Cat()
 {
-	std::cout << " destructor of Cat is called" << std::endl;
+	std::cout << "destructor of Cat is called" << std::endl;
 }
 
 Cat& Cat::operator=(Cat const& other)

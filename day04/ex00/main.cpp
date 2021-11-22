@@ -20,4 +20,9 @@ int main()
 
 	goat->makeSound();
 	meti->makeSound(); //will not output the wrong cat sound because makeSound isnt virtual
+	delete meta;
+	delete j;
+	delete i;
+	delete meti;
+	delete goat;
 }

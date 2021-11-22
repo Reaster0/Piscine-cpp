@@ -46,7 +46,7 @@ WrongCat::WrongCat(WrongCat const& other)
 
 WrongCat::~WrongCat()
 {
-	std::cout << " destructor of WrongCat is called" << std::endl;
+	std::cout << "destructor of WrongCat is called" << std::endl;
 }
 
 WrongCat& WrongCat::operator=(WrongCat const& other)
