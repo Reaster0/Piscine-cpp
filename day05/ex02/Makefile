@@ -6,13 +6,16 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/11/03 18:35:20 by earnaud          ###   ########.fr        #
+#    Updated: 2021/11/23 16:59:46 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		:= main.cpp \
 				Bureaucrat.cpp \
-				Form.cpp
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
 NAME		:= bureaucrat

@@ -21,6 +21,7 @@ class Form
 		std::string getName() const;
 		int getGradeSign() const;
 		int getGradeExec() const;
+		virtual void action() const = 0;
 
 		Form &operator=(const Form &other);
 
