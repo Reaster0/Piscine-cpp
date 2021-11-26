@@ -22,20 +22,26 @@ class Form
 		int getGradeSign() const;
 		int getGradeExec() const;
 		virtual void action() const = 0;
+		void execute(Bureaucrat const &executor) const;
 
 		Form &operator=(const Form &other);
 
 	class GradeTooLowException : public std::exception
-		{
+	{
 		public:
-			virtual const char *what() const throw() { return "the grade is too low for this form"; }
-		};
+			virtual const char *what() const throw() { return "the grade is too low for this form";}
+	};
 
 	class GradeTooHighException : public std::exception
-		{
+	{
 		public:
-			virtual const char *what() const throw() { return "the grade is too high and should not be over 1"; }
-		};
+			virtual const char *what() const throw() { return "the grade is too high and should not be over 1";}
+	};
+	class FormNotSignedException : public std::exception
+	{
+		public:
+			virtual const char *what() const throw() {return "the form is not signed";}
+	};
 };
 
 	std::ostream& operator<<(std::ostream &os, const Form &other);

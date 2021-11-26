@@ -2,6 +2,7 @@
 #define BUREAUCRAT
 #include <string>
 #include <iostream>
+#include <cstdlib>
 #include <fstream>
 #include "Form.hpp"
 
@@ -25,6 +26,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(Form &other) const;
+		void executeForm(Form const &form);
 
 	class GradeTooLowException : public std::exception
 		{

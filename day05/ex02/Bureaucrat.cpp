@@ -68,3 +68,13 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)
 {
 	return os << other.getName() << ", bureaucrat, grade " << other.getGrade();
 }
+
+void Bureaucrat::executeForm(Form const &form)
+{
+	try{
+		form.execute(*this);
+		std::cout << this->name << " executes " << form.getName() << std::endl;
+	} catch(const std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+}

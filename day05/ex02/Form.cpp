@@ -69,3 +69,12 @@ std::ostream &operator<<(std::ostream &os, Form const &other)
 {
 	return os << other.getName() << ", form, gradeToSign = " << other.getGradeSign() << ", gradeToExec = " << other.getGradeExec();
 }
+
+void Form::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > gradeToExecute)
+		throw Form::GradeTooLowException();
+	if (!signature)
+		throw Form::FormNotSignedException();
+	action();
+}

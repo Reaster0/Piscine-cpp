@@ -6,7 +6,7 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/11/23 16:59:46 by earnaud          ###   ########.fr        #
+#    Updated: 2021/11/26 13:06:27 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS		:= main.cpp \
 OBJS		:= $(SRCS:.cpp=.o)
 NAME		:= bureaucrat
 CC			:= clang++
-CFLAGS		:= -Wall -Wextra -Werror -std=c++98
+CFLAGS		:= -Wall -Wextra -Werror -std=c++98 -g -fstandalone-debug
 %.o:		%.cpp
 			$(CC) $(CFLAGS) -c $< -o $@
 
