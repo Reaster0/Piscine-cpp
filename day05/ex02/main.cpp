@@ -32,4 +32,5 @@ int main()
 	}
 	std::cout << "----------------------\n";
 	jean.executeForm(sangoku); //same thing but class inverted
+	delete(lol);
 }
