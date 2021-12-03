@@ -6,20 +6,14 @@
 #    By: earnaud <earnaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/20 13:35:59 by earnaud           #+#    #+#              #
-#    Updated: 2021/12/03 13:37:21 by earnaud          ###   ########.fr        #
+#    Updated: 2021/12/03 18:00:38 by earnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		:= main.cpp \
-				Bureaucrat.cpp \
-				Form.cpp \
-				ShrubberyCreationForm.cpp \
-				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp \
-				Intern.cpp
+SRCS		:= main.cpp
 
 OBJS		:= $(SRCS:.cpp=.o)
-NAME		:= bureaucrat
+NAME		:= convert
 CC			:= clang++
 CFLAGS		:= -Wall -Wextra -Werror -std=c++98
 %.o:		%.cpp
