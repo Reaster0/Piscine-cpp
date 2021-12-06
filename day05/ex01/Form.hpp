@@ -7,7 +7,7 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string name;
+		std::string const name;
 		bool signature;
 		int const gradeToSign;
 		int const gradeToExecute;
@@ -21,6 +21,7 @@ class Form
 		std::string getName() const;
 		int getGradeSign() const;
 		int getGradeExec() const;
+		bool getSigned() const;
 
 		Form &operator=(const Form &other);
 

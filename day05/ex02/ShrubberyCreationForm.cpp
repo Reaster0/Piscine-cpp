@@ -34,5 +34,5 @@ void ShrubberyCreationForm::action() const
 	if (!file)
 		std::cout << "can't write to the file" << std::endl;
 	file.write(three, sizeof(char) * 135);
-
+	file.write(three, sizeof(char) * 135);
 }

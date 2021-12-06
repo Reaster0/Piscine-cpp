@@ -7,7 +7,7 @@ class Bureaucrat;
 class Form
 {
 	private:
-		std::string name;
+		std::string const name;
 		bool signature;
 		int const gradeToSign;
 		int const gradeToExecute;
@@ -16,11 +16,12 @@ class Form
 		Form();
 		Form(std::string const NameGiven, int const gradeSign, int const gradeExecute);
 		Form(const Form &other);
-		~Form();
+		virtual ~Form();
 		void beSigned(Bureaucrat const &other);
 		std::string getName() const;
 		int getGradeSign() const;
 		int getGradeExec() const;
+		bool getSigned() const;
 		virtual void action() const = 0;
 		void execute(Bureaucrat const &executor) const;
 

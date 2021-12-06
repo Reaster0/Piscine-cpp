@@ -11,17 +11,10 @@ Form::Form(const Form &other): name(other.name), signature(other.signature), gra
 
 Form::Form(std::string const NameGiven, int const gradeSign, int const gradeExecute): name(NameGiven), signature(false), gradeToSign(gradeSign), gradeToExecute(gradeExecute)
 {
-	try
-	{
-		if (gradeSign < 1 || gradeExecute < 1)
-			throw Form::GradeTooHighException();
-		if (gradeSign > 150 || gradeExecute > 150)
-			throw Form::GradeTooLowException();
-	}
-	catch (std::exception const &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (gradeSign < 1 || gradeExecute < 1)
+		throw Form::GradeTooHighException();
+	if (gradeSign > 150 || gradeExecute > 150)
+		throw Form::GradeTooLowException();
 }
 
 Form::~Form()
@@ -31,23 +24,15 @@ Form::~Form()
 
 Form &Form::operator=(const Form &other)
 {
-	name = other.name;
 	signature = other.signature;
 	return *this;
 }
 
 void Form::beSigned(Bureaucrat const &other)
-{	
-	try
-	{
-		if (other.getGrade() > gradeToSign)
-			throw Form::GradeTooLowException();
-		signature = true;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+{
+	if (other.getGrade() > gradeToSign)
+		throw Form::GradeTooLowException();
+	signature = true;
 }
 
 std::string Form::getName() const
@@ -65,9 +50,14 @@ int Form::getGradeExec() const
 	return gradeToExecute;
 }
 
+bool Form::getSigned() const
+{
+	return signature;
+}
+
 std::ostream &operator<<(std::ostream &os, Form const &other)
 {
-	return os << other.getName() << ", form, gradeToSign = " << other.getGradeSign() << ", gradeToExec = " << other.getGradeExec();
+	return os << other.getName() << ", form, gradeToSign = " << other.getGradeSign() << ", gradeToExec = " << other.getGradeExec() << ", signature = " << other.getSigned();
 }
 
 void Form::execute(Bureaucrat const &executor) const
