@@ -2,13 +2,6 @@
 #include <limits>
 #include <iomanip>
 
-// int nbrlen(int nbr) {
-// 	int result = 0;
-// 	while (nbr /= 10)
-// 		result++;
-// 	return result;
-// }
-
 bool isnbr(const char *value) {
 	bool point = false;
 	bool minus = false;
@@ -39,8 +32,10 @@ int strFloatLen(char *nbr) {
 }
 
 void nanCase(){
-	std::cout << "lol";
-	return ;
+	std::cout << "char: " << "impossible" << std::endl
+	<< "int: " << "impossible" << std::endl
+	<< "float: " << "nanf" << std::endl
+	<< "double: " << "nan" << std::endl;
 }
 
 int main(int argc, char *argv[]) {
@@ -50,21 +45,32 @@ int main(int argc, char *argv[]) {
 	double doubleResult = 0.0;
 
 	if (argc != 2 || (!isnbr(argv[1]) && argv[1][1])) {
-		std::cout << "Invalid value" << std::endl;
+		if ((std::string)argv[1] == "nan")
+			nanCase();
+		else
+			std::cout << "Invalid value" << std::endl;
 		return 0;
 	}
-	if ((std::string)argv[1] == "nan")
-		nanCase();
-	
-	// charResult = (char)atoi(argv[1]);
-	// intResult = (int)atoi(argv[1]);
-	// floatResult = (float)strtof(argv[1], NULL);
-	doubleResult = strtof(argv[1], NULL);
-	charResult = static_cast<char>(doubleResult);
-	intResult = static_cast<int>(doubleResult);
-	floatResult = static_cast<float>(doubleResult);
 
-	std::cout << "char: " << charResult.c_str() << std::endl
+	if (argv[1][0] >= 32 && argv[1][0] <= 126 && (argv[1][0] > '9' || argv[1][0] < '0'))
+	{
+		charResult = argv[1][0];
+		intResult = static_cast<int>(argv[1][0]);
+		floatResult = static_cast<float>(argv[1][0]);
+		doubleResult = static_cast<double>(argv[1][0]);
+	}
+	else
+	{
+		doubleResult = strtof(argv[1], NULL);
+		intResult = static_cast<int>(doubleResult);
+		if (intResult >= 32 && intResult <= 126)
+			charResult = static_cast<char>(intResult);
+		else
+			charResult = "Non displayable";
+		floatResult = static_cast<float>(doubleResult);
+	}
+
+	std::cout << "char: " << charResult << std::endl
 	<< "int: " << intResult << std::endl
 	<< "float: " << std::fixed << std::setprecision(strFloatLen(argv[1])) << floatResult << "f" << std::endl
 	<< "double: " << std::fixed << std::setprecision(strFloatLen(argv[1])) << doubleResult << std::endl;
