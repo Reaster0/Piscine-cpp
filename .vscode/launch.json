@@ -9,7 +9,7 @@
 			"request": "launch",
 			"name": "Debug",
 			"program": "${workspaceFolder}/day06/ex00/convert",
-			"args": [],
+			"args": ["-75"],
 			"cwd": "${workspaceFolder}"
 		}
 	]
