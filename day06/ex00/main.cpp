@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 	double doubleResult = 0.0;
 
 	if (argc != 2 || (!isnbr(argv[1]) && argv[1][1])) {
-		if ((std::string)argv[1] == "nan")
+		if (argv[1] && static_cast<std::string>(argv[1]) == "nan")
 			nanCase();
 		else
 			std::cout << "Invalid value" << std::endl;
