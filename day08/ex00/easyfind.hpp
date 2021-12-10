@@ -16,7 +16,7 @@ int easyfind(T it, int value)
 	typename T::iterator result = std::find(it.begin(), it.end(), value);
 	if (*result != value)
 		throw dontFind();
-	//std::cout << "next value is " << *(result + 1) << std::endl; //decomment to see that it is the first one
+	//std::cout << "next value is " << *(result + 1) << std::endl; //uncomment to see that it is the first one
 	return *result;
 }
 

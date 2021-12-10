@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 		return 0;
 	}
 
-	if (argv[1][0] >= 32 && argv[1][0] <= 126 && (argv[1][0] > '9' && argv[1][0] < '0'))
+	if (argv[1][0] >= 32 && argv[1][0] <= 126 && (argv[1][0] > '9' || argv[1][0] < '0') && argv[1][0] != '-' )
 	{
 		charResult = argv[1][0];
 		intResult = static_cast<int>(argv[1][0]);
