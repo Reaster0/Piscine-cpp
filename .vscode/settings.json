@@ -78,6 +78,11 @@
 		"*.tcc": "cpp",
 		"memory_resource": "cpp",
 		"stop_token": "cpp",
-		"__bits": "cpp"
+		"__bits": "cpp",
+		"cassert": "cpp",
+		"cerrno": "cpp",
+		"cfloat": "cpp",
+		"climits": "cpp",
+		"version": "cpp"
 	}
 }
