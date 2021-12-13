@@ -35,22 +35,13 @@ int span::shortestSpan()
 	if (getLen() <= 1)
 		throw spanSize();
 
-	int mini;
-	int maxi;
-	bool firstRun = true;
-	for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
-	{
-		if (firstRun || *it < mini)
-			mini = *it;
-		firstRun = false;
-	}
-	firstRun = true;
-	for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
-	{
-		if ((*it != mini && firstRun) || (*it < maxi && *it > mini))
-			maxi = *it;
-		firstRun = false;
-	}
+	int record = 0;
+
+	for (std::vector<int>::iterator it = values.begin(); it != values.end(); it++)
+		for (std::vector<int>::iterator it2 = values.begin(); it2 != values.end(); it2++)
+			if ((abs(*it - *it2) < record || !record) && *it != *it2)
+				record = abs(*it - *it2);
+	return record;
 }
 
 int span::longestSpan()
@@ -58,22 +49,7 @@ int span::longestSpan()
 	if (getLen() <= 1)
 		throw spanSize();
 
-	bool firstRun = true;
-	int mini;
-	int maxi;
-	for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
-	{
-		if (firstRun || *it > maxi)
-			maxi = *it;
-		firstRun = false;
-	}
-	for (std::vector<int>::iterator it = values.begin(); it != values.end(); ++it)
-	{
-		if ((*it != maxi && firstRun) || *it < mini)
-			mini = *it;
-		firstRun = false;
-	}
-	return (maxi - mini);
+	return *std::max_element(values.begin(), values.end()) - *std::min_element(values.begin(), values.end());
 }
 
 std::ostream &operator<<(std::ostream &os, span &other)

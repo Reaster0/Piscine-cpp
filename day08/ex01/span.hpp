@@ -2,6 +2,7 @@
 #define _span_
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 class span
 {
