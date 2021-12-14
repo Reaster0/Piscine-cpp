@@ -16,10 +16,12 @@ class span
 		span(const span &other);
 		~span();
 		void addNumber(int value);
+		void randAddNumber(unsigned int nbr);
 		int getLen() const;
 		const std::vector<int> &getValues() const;
 		int shortestSpan();
 		int longestSpan();
+		span &operator=(const span &other);
 
 		class dontHaveSpace: public std::exception
 		{

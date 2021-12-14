@@ -29,5 +29,10 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+
+	span big(1000);
+	big.randAddNumber(1000);
+	std::cout << "-----------------------------\n";
+	std::cout << big.shortestSpan() << std::endl;
+	std::cout << big.longestSpan() << std::endl;
 }

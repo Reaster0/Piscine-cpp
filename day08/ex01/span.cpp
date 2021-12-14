@@ -8,6 +8,11 @@ span::span(const unsigned int N) : _len(N)
 {
 }
 
+span::span(const span &other)
+{
+	*this = other;
+}
+
 span::~span()
 {
 
@@ -25,9 +30,26 @@ int span::getLen() const
 	return _len;
 }
 
+void span::randAddNumber(unsigned int nbr)
+{
+	srand(time(0));
+
+	for (unsigned int i = 0; i < nbr; i++)
+		addNumber(rand());
+}
+
 const std::vector<int> &span::getValues() const
 {
 	return values;
+}
+
+span &span::operator=(const span &other)
+{
+	if (this == &other)
+		return *this;
+	this->_len = other.getLen();
+	this->values = other.values;
+	return *this;
 }
 
 int span::shortestSpan()
