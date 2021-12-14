@@ -23,6 +23,7 @@ class Array
 				elements[i] = 0;
 		}
 		Array(Array const &other) {
+			elements = new T[1];
 			*this = other;
 		}
 		~Array() {
@@ -31,6 +32,8 @@ class Array
 
 		Array &operator=(Array const &other)
 		{
+			if (this == &other)
+				return *this;
 			delete[] elements;
 			_size = other._size;
 			elements = new T[other._size];
